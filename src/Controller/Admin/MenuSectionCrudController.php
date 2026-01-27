@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\MenuSection;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -31,5 +32,17 @@ class MenuSectionCrudController extends AbstractCrudController
     {
         return parent::createEntity($entityFqcn)
             ->setPosition(-1);
+    }
+
+    public function deleteEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $menuSectionItems = $entityInstance->getMenuSectionItems();
+
+        parent::deleteEntity($entityManager, $entityInstance);
+
+        foreach ($menuSectionItems as $menuSectionItem) {
+            $imagePath = $this->getParameter('kernel.project_dir') . '/public/uploads/images/' . $menuSectionItem->getImage();
+            unlink($imagePath);
+        }
     }
 }

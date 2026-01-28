@@ -1,16 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}Le Restaurant Du Dev{% endblock %}</title>
+
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="1024x1024" href="{{ asset('images/favicon-1024x1024.png') }}">
+
+        <link rel="stylesheet" href="{{ asset('styles/reset.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('styles/root.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/body.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('styles/header.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/nav.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/main.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/footer.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('styles/section.css') }}">
+        <link rel="stylesheet" href="{{ asset('styles/spacing.css') }}">
+
         {% block stylesheets %}
         {% endblock %}
 
         {% block javascripts %}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+
+    <body class="reset">
+        <header>
+            <nav id="nav">
+                <a id="nav-brand" href="{{ path('index') }}">Le Restaurant Du Dev</a>
+
+                <button id="nav-hamburger" type="button" data-toggle-expand-id="nav-links">
+                    <svg id="nav-hamburger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                </button>
+
+                {% set nav_links = {
+                    'Accueil': 'index',
+                    'Carte': 'menu',
+                    'Réservation': 'reservation',
+                    'Informations': 'informations',
+                    'Jeux': 'games'
+                } %}
+                <ul id="nav-links">
+                    {% set request_route = app.request.attributes.get('_route') %}
+                    {% for label, route in nav_links %}
+                        <li>
+                            <a class="nav-link {{ route == request_route ? 'active' : '' }}"
+                               href="{{ path(route) }}">
+                                {{ label }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer>
+            <p id="copyright">&copy; 2026 Benjamin Valero</p>
+        </footer>
+
+        <script src="{{ asset('js/expand.js') }}"></script>
     </body>
+
 </html>

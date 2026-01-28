@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+#nav {
+  background-color: var(--primary);
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#nav-brand {
+  text-decoration: none;
+  color: var(--primary-contrast);
+
+  margin-right: 1rem;
+
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
+  white-space: nowrap;
+}
+
+#nav-hamburger {
+  border: 1px solid;
+  border-color: rgba(var(--primary-contrast-rgb), 0.65);
+
+  background-color: transparent;
+  padding: 0.125em 0.375em;
+  border-radius: 0.25em;
+  cursor: pointer;
+
+  color: rgba(var(--primary-contrast-rgb), 0.65);
+  font-size: 2rem;
+
+  transition: border-color ease-in-out 0.35s, color ease-in-out 0.35s;
+}
+
+@media (min-width: 992px) {
+  #nav-hamburger {
+    display: none;
+  }
+}
+
+#nav-hamburger.active {
+  border-color: rgba(var(--primary-contrast-rgb), 1);
+
+  color: rgba(var(--primary-contrast-rgb), 1);
+}
+
+#nav-hamburger-icon {
+  display: block;
+  width: 1em;
+}
+
+#nav-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+}
+
+#nav-links {
+  flex-basis: 100%;
+  min-width: max-content;
+
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  #nav-links {
+    flex-basis: auto;
+    min-width: auto;
+
+    flex-direction: row;
+  }
+}
+
+#nav-links {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  #nav-links {
+    height: auto !important;
+    overflow: visible;
+    transition: all 0s ease;
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+  color: rgba(var(--primary-contrast-rgb), 0.65);
+
+  display: block;
+  padding: 0.5em 0.75em;
+
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: rgba(var(--primary-contrast-rgb), 0.8);
+}
+
+.nav-link.active {
+  color: rgba(var(--primary-contrast-rgb), 1);
+}

@@ -1,0 +1,8 @@
+#home-hero-section {
+  background-image: url("../images/room.jpg");
+}
+
+#home-hero-ctas > .button {
+  width: 5.255em;
+  height: 1.4em;
+}

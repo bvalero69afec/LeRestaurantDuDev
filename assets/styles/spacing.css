@@ -1,0 +1,48 @@
+.padding-x-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.padding-x-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.padding-y-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.padding-y-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.padding-y-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+.gap-24 {
+  gap: 6rem;
+}

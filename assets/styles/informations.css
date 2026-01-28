@@ -1,0 +1,33 @@
+.contact-detail {
+  font-family: var(--font-secondary);
+}
+
+#contact-detail-address-street {
+  width: 11.5em;
+
+  white-space: normal;
+}
+
+@media (min-width: 992px) {
+  #contact-detail-address-street {
+    width: auto;
+
+    white-space: nowrap;
+  }
+}
+
+#contact-map {
+  border: none;
+}
+
+#contact-map {
+  width: 19rem;
+  height: 19rem;
+}
+
+@media (min-width: 992px) {
+  #contact-map {
+    width: 33rem;
+    height: 25rem;
+  }
+}

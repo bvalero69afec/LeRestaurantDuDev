@@ -1,0 +1,24 @@
+.label {
+  color: var(--body-emphasis-color);
+  font-family: var(--font-secondary);
+  white-space: nowrap;
+}
+
+.input {
+  color: var(--body-emphasis-color);
+  font-family: var(--font-monospace);
+
+  background-color: transparent;
+  padding: 0.375em 0.75em;
+  border: 1px solid var(--body-emphasis-color);
+  border-radius: 0.375em;
+}
+
+.input:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-x) var(--focus-ring-y) var(--focus-ring-blur) var(--focus-ring-width) var(--body-emphasis-color);
+}
+
+.input-int-width {
+  width: 11ch;
+}

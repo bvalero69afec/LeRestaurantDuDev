@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/hide.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('styles/button.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/form.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/card.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('styles/games.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('styles/game_dice.css') }}">
+{% endblock %}
+
+{% block main %}
+    <div class="section padding-x-2 padding-y-12 gap-24">
+        <section>
+            <div class="section-block gap-12">
+                <h2 class="reset reset-typo block-width desktop-block-width-lg title-style-2">Jeu de dés</h2>
+                <p class="reset block-width">
+                    Chaque joueur clique sur son bouton «&nbsp;Lancer&nbsp;» pour effectuer un lancer de dé.<br>
+                    Le dé comporte 10 faces numérotées de 1 à 10.<br>
+                    Chaque joueur dispose de 5 lancers.<br>
+                    Le score à l'intérieur du cercle est le cumul de tous les lancers.<br>
+                    Le nombre de lancers déjà effectués apparaît entre parenthèses sur le bouton.<br>
+                    Le but du jeu est d'obtenir le score le plus élevé.<br>
+                    Une fois que tous les joueurs ont effectué tous leurs lancers, un classement est affiché.<br>
+                    Si un joueur atteint le score maximal de 50, un message secret apparaît dans le cadre doré juste en dessous.
+                </p>
+                <div class="game-secret-message-container block-width padding-x-4 padding-y-4">
+                    <p id="game-dice-secret-message" class="reset game-secret-message hide-visibility">
+                        Lorsque tu demandes l'addition, précise que tu la veux sans bug. Tu auras droit à une réduction de 5%&#8239;!
+                    </p>
+                </div>
+                <div id="game-dice-container" class="section-block gap-24" data-secret-message-id="game-dice-secret-message">
+                    <form id="game-dice-start-form" class="section-block gap-8">
+                        <div class="section-block gap-4 game-settings">
+                            <div class="section-block section-block-row gap-4">
+                                <label class="label" for="game-dice-setting-input-player-count">Nombre de joueurs&nbsp;:</label>
+                                <input id="game-dice-setting-input-player-count" class="reset-typo input input-int-width" type="number" name="game-dice-setting-input-player-count" min="1" value="2" required />
+                            </div>
+                        </div>
+                        <button class="reset-typo button">Commencer la partie</button>
+                    </form>
+                    <div id="game-dice-player-cards" class="section-block section-block-row block-width desktop-block-width-xl gap-12 hide-display">
+                        <template id="game-dice-player-card-template">
+                            <div class="game-dice-player-card card" data-player="">
+                                <div class="game-dice-player-card-name-container card-inner-border-radius-top">
+                                    <p class="game-dice-player-card-name"></p>
+                                </div>
+                                <div class="game-dice-player-card-score-container">
+                                    <div class="game-dice-player-score-circle-container">
+                                        <p class="game-dice-player-score"></p>
+                                    </div>
+                                </div>
+                                <button type="button" class="game-dice-player-card-roll-button reset-typo button card-inner-border-radius-bottom">Lancer (<span class="game-dice-player-current-roll-number"></span>)</button>
+                            </div>
+                        </template>
+                    </div>
+                    <table id="game-dice-leaderboard" class="reset-table section-block gap-8 hide-display">
+                        <caption id="game-dice-leaderboard-caption" class="block-width desktop-block-width-lg subtitle-style-2">Classement</caption>
+                        <tbody id="game-dice-leaderboard-body" class="section-block gap-4">
+                        <template id="game-dice-leaderboard-row-template">
+                            <tr class="game-dice-leaderboard-row text-nowrap">
+                                <td class="game-dice-leaderboard-data-rank reset">
+                                    <span class="game-dice-leaderboard-data-rank-text"></span>
+                                </td>
+                                <td class="game-dice-leaderboard-data-name reset">
+                                    <span class="game-dice-leaderboard-data-name-text"></span>
+                                </td>
+                                <td class="game-dice-leaderboard-data-score reset">
+                                    <div class="game-dice-player-score-circle-container">
+                                        <p class="game-dice-player-score"></p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+                        </tbody>
+                    </table>
+                </div>
+                <script src="{{ asset('js/game_dice.js') }}"></script>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ asset('js/games_secret_messages_manager.js') }}"></script>
+{% endblock %}

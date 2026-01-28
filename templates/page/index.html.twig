@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/button.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('styles/hero_section.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('styles/index.css') }}">
+{% endblock %}
+
+{% block main %}
+    <section>
+        <div id="home-hero-section" class="section hero-section padding-x-4 padding-y-24">
+            <div class="section-block gap-12">
+                <h2 class="reset reset-typo hero-title">Découvrez une expérience unique</h2>
+                <div id="home-hero-ctas" class="section-block gap-8 desktop-section-block-row">
+                    <a class="reset-typo button" href="{{ path('menu') }}">Carte</a>
+                    <a class="reset-typo button" href="{{ path('reservation') }}">Réservation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="section padding-x-2 padding-y-12">
+            <div class="section-block gap-12">
+                <h2 class="reset reset-typo block-width desktop-block-width-lg title-style-1">Bienvenue au Restaurant Du Dev</h2>
+                <p class="reset block-width">
+                    Les murs en bois donnant une ambiance chaleureuse peuvent paraître anciens, mais ne vous inquiétez pas, tout est moderne ici&#8239;!
+                    L'assise est confortable, même après de longues heures.
+                    Les lumières sont tamisées, effectivement, on a quand même besoin de voir ce que l'on mange.
+                    Les fenêtres laissent apercevoir notre magnifique jardin, idéal pour reposer les yeux.
+                    Le Wi-Fi à la dernière norme est disponible, évidemment&#8239;!
+                </p>
+                <p class="reset block-width">
+                    Ne demandez pas à un développeur de faire la cuisine&#8239;!
+                    Tous nos plats sont pensés, dosés et cuisinés par nos robots humanoïdes en autonomie totale.
+                    Ils ont été entraînés par les plus grands chefs de ce monde avec toutes les cultures culinaires.
+                    Notre cuisine révolutionnaire est tout simplement unique et parfaite.
+                </p>
+                <p class="reset block-width">
+                    Le service est assuré pour chaque table par un robot humanoïde.
+                    Il suffit de lever la main pour que le robot se dirige vers vous.
+                    Une fois à votre portée, formulez votre requête et le robot intelligent s'exécutera.
+                    Vous pouvez également discuter avec votre robot, il ne mange pas les humains&#8239;!
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}

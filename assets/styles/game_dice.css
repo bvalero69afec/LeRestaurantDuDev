@@ -1,0 +1,119 @@
+#game-dice-player-cards {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-dice-player-card {
+  box-sizing: border-box;
+  width: 14rem;
+  height: 20rem;
+
+  --card-border-width: 10px;
+  --card-border-radius: 1rem;
+  border-color: var(--primary-shade-15);
+}
+
+.game-dice-player-card > :nth-child(1) {
+  height: 10%;
+}
+
+.game-dice-player-card > :nth-child(2) {
+  height: 70%;
+}
+
+.game-dice-player-card > :nth-child(3) {
+  height: 20%;
+}
+
+.game-dice-player-card-name-container {
+  background-color: var(--primary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-dice-player-card-name {
+  margin: 0;
+
+  color: var(--primary-contrast);
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.game-dice-player-card-score-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 3rem;
+}
+
+.game-dice-player-score-circle-container {
+  box-sizing: border-box;
+  width: 2em;
+  height: 2em;
+  border: 3px solid;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-dice-player-score {
+  margin: 0;
+
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.game-dice-player-card-roll-button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  font-weight: bold;
+}
+
+#game-dice-leaderboard-caption {
+  font-family: var(--font-secondary);
+}
+
+#game-dice-leaderboard-body {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-lg);
+}
+
+.game-dice-leaderboard-row {
+  display: flex;
+  align-items: center;
+}
+
+.game-dice-leaderboard-data-rank,
+.game-dice-leaderboard-data-name,
+.game-dice-leaderboard-data-score {
+  width: 6rem;
+
+  display: flex;
+}
+
+.game-dice-leaderboard-data-name {
+  justify-content: center;
+}
+
+.game-dice-leaderboard-data-name-text {
+  font-weight: bold;
+  text-align: center;
+}
+
+.game-dice-leaderboard-data-score {
+  justify-content: end;
+}

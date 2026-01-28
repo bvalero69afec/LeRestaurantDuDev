@@ -1,0 +1,19 @@
+.card {
+  --card-border-width: 0;
+  --card-border-radius: 0;
+  --card-inner-border-radius: calc(var(--card-border-radius) - var(--card-border-width));
+
+  border-width: var(--card-border-width);
+  border-style: solid;
+  border-radius: var(--card-border-radius);
+}
+
+.card-inner-border-radius-top {
+  border-top-left-radius: var(--card-inner-border-radius);
+  border-top-right-radius: var(--card-inner-border-radius);
+}
+
+.card-inner-border-radius-bottom {
+  border-bottom-left-radius: var(--card-inner-border-radius);
+  border-bottom-right-radius: var(--card-inner-border-radius);
+}

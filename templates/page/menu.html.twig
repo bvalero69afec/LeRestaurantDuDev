@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/menu.css') }}">
+{% endblock %}
+
+{% block main %}
+    <div id="menu" class="section padding-x-2 padding-y-12">
+        {% for section in sections %}
+            {% if section.menuSectionItems is not empty %}
+                <section>
+                    <div class="section-block menu-section">
+                        <h2 class="reset reset-typo block-width desktop-block-width-lg text-prewrap title-style-2 menu-section-title">{{ section.name }}</h2>
+                        <ul class="reset-list section-block menu-section">
+                            {% for item in section.menuSectionItems %}
+                                <li class="section-block gap-4 desktop-section-block-row menu-section-item">
+                                    <img class="menu-section-item-image" src="{{ asset('uploads/images/' ~ item.image) }}" alt="{{ item.name }}" loading="lazy">
+                                    <div class="section-block gap-1 menu-section-item-informations">
+                                        <div class="section-block gap-1 block-width desktop-block-width-lg menu-section-item-title-price">
+                                            <h3 class="reset reset-typo block-width text-prewrap">{{ item.name }}</h3>
+                                            <p class="reset text-nowrap menu-section-item-price">{{ item.getFormattedPrice(',', '&nbsp;', true) }}&nbsp;€</p>
+                                        </div>
+                                        <p class="reset block-width text-prewrap">{{ item.description }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+.reset,
+.reset-list
+{
+  margin: unset;
+  padding: unset;
+}
+
+.reset-list {
+  list-style-type: none;
+}
+
+.reset-table {
+  border-spacing: 0;
+}
+
+.reset-typo {
+  color: unset;
+  font-family: unset;
+  font-size: unset;
+  font-weight: unset;
+  font-style: unset;
+  line-height: unset;
+  text-decoration: unset;
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  --gold: #ffc90e;
+
+  --primary: #1d3557;
+  --primary-shade-10: #1a304e;
+  --primary-shade-15: #192d4a;
+  --primary-shade-20: #172a46;
+
+  --primary-contrast: #ffffff;
+  --primary-contrast-rgb: 255, 255, 255;
+
+  --font-primary: Lato, sans-serif;
+  --font-secondary: Roboto, sans-serif;
+  --font-monospace: "Roboto Mono", monospace;
+
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.125rem;
+
+  --body-bg: #191919;
+  --body-bg-rgb: 25, 25, 25;
+
+  --body-color: #c7cdd5;
+  --body-line-height: 1.4;
+
+  --body-emphasis-color: #dde1e6;
+
+  --body-title-color: #f4f5f7;
+
+  --focus-ring-x: 0;
+  --focus-ring-y: 0;
+  --focus-ring-blur: 8px;
+  --focus-ring-width: 0;
+}
+
+@media (min-width: 992px) {
+  :root {
+    font-size: 112.5%;
+  }
+}

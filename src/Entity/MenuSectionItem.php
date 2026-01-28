@@ -98,6 +98,41 @@ class MenuSectionItem
         return $this->price;
     }
 
+    public function getFormattedPrice(string $decimal_separator, string $thousands_separator, bool $decodeHtmlEntities = false): string {
+        $formattedPrice = '';
+
+        if ($decodeHtmlEntities) {
+            $decimal_separator = html_entity_decode($decimal_separator, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5);
+            $thousands_separator = html_entity_decode($thousands_separator, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML5);
+        }
+
+        $parts = explode('.', $this->price, 2);
+
+        $intPart = $parts[0];
+        $intPartLen = strlen($intPart);
+        for ($i = 0; $i < $intPartLen; $i++) {
+            $positionFromRight = $intPartLen - $i;
+            if ($i !== 0 && $positionFromRight % 3 === 0) {
+                $formattedPrice .= $thousands_separator;
+            }
+            $formattedPrice .= $intPart[$i];
+        }
+
+        if (count($parts) === 2) {
+            $fracPart = $parts[1];
+            if (preg_match('/[^0]/', $fracPart)) {
+                $formattedPrice .= $decimal_separator;
+                $formattedPrice .= $fracPart;
+
+                $scale = 2;
+                $fracPartLen = strlen($fracPart);
+                $formattedPrice .= str_repeat('0', $scale - $fracPartLen);
+            }
+        }
+
+        return $formattedPrice;
+    }
+
     public function setPrice(?string $price): static
     {
         $this->price = $price;

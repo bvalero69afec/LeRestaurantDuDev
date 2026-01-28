@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 100vh;
+
+  justify-content: center;
+}
+
+.hero-title {
+  color: var(--body-title-color);
+  font-family: "Square Peg", cursive;
+  font-size: 3.58rem;
+  line-height: 1.05;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgba(var(--body-bg-rgb), 0.7);
+}
+
+.hero-title {
+  width: 16rem;
+}
+
+@media (min-width: 992px) {
+  .hero-title {
+    width: 28rem;
+  }
+}

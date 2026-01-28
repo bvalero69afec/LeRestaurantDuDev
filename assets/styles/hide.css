@@ -1,0 +1,7 @@
+.hide-display {
+  display: none !important;
+}
+
+.hide-visibility {
+  visibility: hidden !important;
+}

@@ -1,0 +1,19 @@
+name: Le Restaurant Du Dev CI
+
+on: [push]
+
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install Composer dependencies
+        run: SCRIPT_ASSET_MAPPER_COMPILE=1 composer install

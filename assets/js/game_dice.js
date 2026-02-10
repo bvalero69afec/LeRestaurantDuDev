@@ -143,9 +143,10 @@ function gameDiceHandleGameEnd() {
 
 function gameDiceOnPlayerCardsClick(event) {
   const target = event.target;
-  //Check if a roll button element is clicked inside the player card container
-  if (target.classList.contains("game-dice-player-card-roll-button")) {
-    const playerCard = target.closest(".game-dice-player-card"); //Retrieve the player card element of the roll button
+  const rollButton = target.closest(".game-dice-player-card-roll-button"); //Retrieve a roll button from the clicked element
+  //Check if a roll button element (including children) is clicked inside the player card container
+  if (rollButton !== null) {
+    const playerCard = rollButton.closest(".game-dice-player-card"); //Retrieve the player card element of the roll button
     const playerId = Number.parseInt(playerCard.dataset.player); //Retrieve the player id from the card element
 
     //Roll a die and update the new player total score
@@ -160,7 +161,7 @@ function gameDiceOnPlayerCardsClick(event) {
     gameDiceUpdatePlayerCurrentRollNumberElement(playerCurrentRollNumber, playerId);
     //Disable the button if we reached the roll limit
     if (gameDicePlayers[playerId].roll >= GAME_DICE_MAX_ROLL) {
-      target.disabled = true;
+      rollButton.disabled = true;
     }
 
     //Dispatch an event if the player reached max score
